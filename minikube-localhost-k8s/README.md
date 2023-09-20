@@ -33,7 +33,7 @@ kubectl logs pod/kubernetes-dashboard-5c5cfc8747-42fb2 --namespace=kubernetes-da
 
 ```bash
 # deploy a docker container on k8s cluster
-kubectl create deploy viki-web-terminal --image=raonigabriel/web-terminal:latest --port=7681 # whats the diff ?
+kubectl create deploy viki-web-terminal --image=raonigabriel/web-terminal:latest --port=7681
 
 # Expose | create a internal service 
 kubectl expose deployment viki-web-terminal --type=NodePort --port=7681 --target-port=7681

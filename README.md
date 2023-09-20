@@ -33,11 +33,17 @@ kubectl logs pod/kubernetes-dashboard-5c5cfc8747-42fb2 --namespace=kubernetes-da
 
 ```bash
 # deploy a docker container on k8s cluster
-kubectl run viki-web-terminal --image=raonigabriel/web-terminal:latest --port=7681
+kubectl create deploy viki-web-terminal --image=raonigabriel/web-terminal:latest --port=7681
 
-# or
-kubectl create deploy viki-web-terminal --image=raonigabriel/web-terminal:latest --port=7681 # whats the diff ?
+# Expose | create an internal service 
+kubectl expose deployment viki-web-terminal --type=NodePort --port=7681 --target-port=7681
 
-# Expose 
-kubectl expose deployment viki-web-terminal --type=LoadBalancer --port=7681 --target-port=7681
+# Enables nginx ingress controller for outside access
+minikube addons enable ingress
+
+# apply ingress
+kubectl apply -f ingress.yml 
+
+# port fwd
+kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 7681:80
 ```
