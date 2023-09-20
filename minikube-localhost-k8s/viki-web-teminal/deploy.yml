@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: viki-web-terminal
+  labels:
+    app: viki-web-terminal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: viki-web-terminal
+  template:
+    metadata:
+      labels:
+        app: viki-web-terminal
+    spec:
+      containers:
+      - name: web-terminal
+        image: raonigabriel/web-terminal:latest
+        resources:
+          requests:
+            cpu: "100m"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 7681

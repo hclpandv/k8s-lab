@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+# Indicates this as a service
+kind: Service
+metadata:
+ # Service name
+ name: viki-web-terminal
+spec:
+ selector:
+   # Selector for Pods
+   app: viki-web-terminal
+ ports:
+   # Port Map
+ - port: 7681
+   targetPort: 7681
+   protocol: TCP
+ type: NodePort
