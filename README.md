@@ -1,6 +1,6 @@
 # k8s-lab
 
-## Running monikube cluster within codespace
+## Running `minikube` cluster within codespace
 
 ```bash
 # Check if minikube already installed (generally pre installed)
