@@ -4,7 +4,12 @@
 
 We switch `kubectl` context for each environemnt 
 
-```bash
+Execute command `kubectl config get-contexts`
+
+```output
+CURRENT   NAME               CLUSTER            AUTHINFO                               NAMESPACE
+          cloud_okteto_com   cloud_okteto_com   0abe7adREDATED7b7abcb5                 hclpandv
+*         minikube           minikube           minikube                               default
 
 ```
 
