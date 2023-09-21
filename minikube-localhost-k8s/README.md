@@ -1,5 +1,3 @@
-# k8s-lab
-
 ## Running `minikube` cluster within codespace
 
 ```bash

@@ -1,5 +1,13 @@
 # k8s-lab
 
+## How to use `minikube` for dev and `okteto cloud` prod deployment
+
+We switch `kubectl` context for each environemnt 
+
+```bash
+
+```
+
 ## Running `minikube` cluster within codespace
 
 ```bash
