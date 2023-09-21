@@ -8,6 +8,11 @@ okteto version && kubectl version
 # Download and set env variable for okteto cred. Download from settings tab in the ui.
 export KUBECONFIG=$HOME/Downloads/okteto-kube.config:${KUBECONFIG:-$HOME/.kube/config}
 
+# OR : Use PAT from settings
+okteto context use https://cloud.okteto.com --token $OKTETO_PAT
+# tell kubectl to use okteto kubeconfig
+okteto kubeconfig
+
 # Create deployment
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
 
