@@ -1,0 +1,31 @@
+# custom image
+# image: axonasif/workspace-python@sha256:f5ba627a31505ea6cf100abe8e552d7ff9e0abd6ba46745b6d6dab349c001430
+
+tasks:
+- name: Terminal 1
+  before: echo Installing and setting up okteto 
+  init: |
+    # install okteto
+    curl https://get.okteto.com -sSfL | sh
+
+    # Setup kubectl
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    chmod +x kubectl
+    mkdir -p ~/.local/bin
+    mv ./kubectl ~/.local/bin/kubectl
+
+    # tell kubectl to use okteto kubeconfig
+    okteto kubeconfig
+
+    # validate installation success
+    okteto version && kubectl version
+  command: |
+    echo Setup done!!
+
+# ports:
+#   - port: 5000
+#     onOpen: ignore
+
+vscode:
+  extensions:
+    - ms-python.python
