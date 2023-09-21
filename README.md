@@ -1,6 +1,6 @@
 # k8s-lab
 
-## How to use `minikube` for dev and `okteto cloud` prod deployment
+## How to use `minikube` local cluster for dev and `cloud.okteto.com` SaaS cluster for prod deployment
 
 We switch `kubectl` context for each environemnt 
 
