@@ -13,10 +13,11 @@ tasks:
     chmod +x kubectl
     mkdir -p ~/.local/bin
     mv ./kubectl ~/.local/bin/kubectl
-
+    
+    # Use PAT from settings
+    okteto context use https://cloud.okteto.com --token $OKTETO_PAT
     # tell kubectl to use okteto kubeconfig
     okteto kubeconfig
-
     # validate installation success
     okteto version && kubectl version
   command: |
