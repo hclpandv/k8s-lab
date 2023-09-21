@@ -1,18 +1,30 @@
+# Work on cloud.okteto.com k8s cluster free tier
+
+## Setup okteto credentials and kubeconfig
+
 ```bash
 # Download okteto
 curl https://get.okteto.com -sSfL | sh
 
-# valiate installation success
+# validate installation success
 okteto version && kubectl version
 
 # Download and set env variable for okteto cred. Download from settings tab in the ui.
 export KUBECONFIG=$HOME/Downloads/okteto-kube.config:${KUBECONFIG:-$HOME/.kube/config}
+```
 
-# OR : Use PAT from settings
+Or
+
+```bash
+# Use PAT from settings
 okteto context use https://cloud.okteto.com --token $OKTETO_PAT
 # tell kubectl to use okteto kubeconfig
 okteto kubeconfig
+```
 
+## Deploy application 
+
+```bash
 # Create deployment
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
 
@@ -38,3 +50,4 @@ kubectl scale deployments/kubernetes-bootcamp --replicas=1
 # Interact with running pod
 kubectl exec -it $POD_NAME -- bash
 kubectl exec -ti $POD_NAME -- curl localhost:8080
+```
