@@ -18,7 +18,7 @@ tasks:
       # validate installation success
       okteto version && kubectl version
     command: |
-      okteto context use https://cloud.okteto.com -t $OKTETO_PAT
+      echo Run the command to initialize okteto context use https://cloud.okteto.com -t $OKTETO_PAT
       
 
 # ports:
