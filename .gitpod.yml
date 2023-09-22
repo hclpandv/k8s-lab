@@ -2,26 +2,29 @@
 # image: axonasif/workspace-python@sha256:f5ba627a31505ea6cf100abe8e552d7ff9e0abd6ba46745b6d6dab349c001430
 
 tasks:
-  - name: Install and setuo okteto
-    init: |
-      # install okteto
-      curl https://get.okteto.com -sSfL | sh
-      # Use PAT from settings
-      okteto context use https://cloud.okteto.com --token $OKTETO_PAT
+  - name: Setup Okteto and kubectl
+    command: bash $GITPOD_REPO_ROOT/gitpod/install-setup-okteto.sh
+
+  # - name: Install and setuo okteto
+  #   init: |
+  #     # install okteto
+  #     curl https://get.okteto.com -sSfL | sh
+  #     # Use PAT from settings
+  #     okteto context use https://cloud.okteto.com --token $OKTETO_PAT
 
       
-      # Setup kubectl
-      curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-      chmod +x kubectl
-      mkdir -p ~/.local/bin
-      mv ./kubectl ~/.local/bin/kubectl
+  #     # Setup kubectl
+  #     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  #     chmod +x kubectl
+  #     mkdir -p ~/.local/bin
+  #     mv ./kubectl ~/.local/bin/kubectl
 
-      # tell kubectl to use okteto kubeconfig
-      okteto kubeconfig
-      # validate installation success
-      okteto version && kubectl version
-    command: |
-      echo Run the command to initialize okteto context use https://cloud.okteto.com -t $OKTETO_PAT
+  #     # tell kubectl to use okteto kubeconfig
+  #     okteto kubeconfig
+  #     # validate installation success
+  #     okteto version && kubectl version
+  #   command: |
+  #     echo Run the command to initialize okteto context use https://cloud.okteto.com -t $OKTETO_PAT
       
 
 # ports:
