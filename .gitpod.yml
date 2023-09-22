@@ -6,8 +6,6 @@ tasks:
     init: |
       # install okteto
       curl https://get.okteto.com -sSfL | sh
-      # Select context via token stored as env var 
-      okteto context use https://cloud.okteto.com -t $OKTETO_PAT
       
       # Setup kubectl
       curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -20,7 +18,8 @@ tasks:
       # validate installation success
       okteto version && kubectl version
     command: |
-      echo Setup done!!
+      okteto context use https://cloud.okteto.com -t $OKTETO_PAT
+      
 
 # ports:
 #   - port: 5000
