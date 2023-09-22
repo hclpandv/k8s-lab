@@ -45,4 +45,4 @@ kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 7681:80
 # Adding secret for docker 
 kubectl create secret docker-registry vikiscripts-docker-registry-secret --docker-server='hub.docker.com' --docker-username vikiscripts --docker-password='xxxx' 
 
-kubectl create secret docker-registry vikiscripts-docker-registry-secret --docker-server='https://index.docker.io/v1/' --docker-username='vikiscripts' --docker-password='India@123' --docker-email='vikiscripts@gmail.com'
+kubectl create secret docker-registry vikiscripts-docker-registry-secret --docker-server='https://index.docker.io/v1/' --docker-username='vikiscripts' --docker-password='xxxx' --docker-email='vikiscripts@gmail.com'
