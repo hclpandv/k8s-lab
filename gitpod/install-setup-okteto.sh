@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Install az cli via script
+echo "Installing Az cli"
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# Login AZ cli
+echo "Login to az cli"
+az login --service-principal \
+    -u ${CLIENT_ID} \
+    -p ${CLIENT_SECRET} \
+    --tenant ${TENANT_ID}
+
+
 # install okteto
 echo "Setting-up okteto"
 OLD_DIR="$PWD"

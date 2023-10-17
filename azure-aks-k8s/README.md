@@ -3,7 +3,7 @@
 1. Install az-cli and login 
 
 ```bash
-# Install via script
+# Install az cli via script
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # Login via device code
