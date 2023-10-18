@@ -21,3 +21,11 @@ resource_group="rg-eas-aks-demo-01"
 aks="aks-eas-d-demo-01"
 az aks get-credentials --resource-group $resource_group --name $aks
 ```
+
+# Port Fwd to access a pod 
+kubectl port-forward viki-web-terminal-6bdbcb7f4c-gp8h9 7681
+
+# access kube-ops-view (visualizer)
+kubectl port-forward kube-ops-view-866b7bf788-xfrbz 8080
+
+#### https://schoolofdevops.github.io/ultimate-kubernetes-bootcamp/kube_visualizer/

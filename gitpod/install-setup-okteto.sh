@@ -11,6 +11,9 @@ az login --service-principal \
     -p ${CLIENT_SECRET} \
     --tenant ${TENANT_ID}
 
+# Install helm
+echo "Installing helm"
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | sudo bash
 
 # install okteto
 echo "Setting-up okteto"
