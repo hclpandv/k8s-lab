@@ -18,7 +18,7 @@ az ad sp create-for-rbac -n "tfuser" --role contributor --scopes /subscriptions/
 
 ```bash
 resource_group="rg-eas-aks-demo-01"
-aks="aks-eas-d-demo-01"
+aks="aks-eas-d-democluster-01"
 az aks get-credentials --resource-group $resource_group --name $aks
 ```
 
